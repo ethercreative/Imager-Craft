@@ -35,10 +35,10 @@ class ImagerVariable
      */
     public function transformImage(&$file, $transform, $transformDefaults = null, $configOverrides = null)
     {
-        $devMode = Craft::$app->config->general->devMode;
-        $external = Craft::$app->config->general->externalUrl;
+        $devMode = Craft::$app->config->general->devMode ?? false;
+        $external = Craft::$app->config->general->externalUrl ?? false;
 
-        if($devMode && isset($external))
+        if($devMode && $external)
         {
             $local = \Craft::getAlias(\Craft::$app->sites->currentSite->baseUrl);
 
