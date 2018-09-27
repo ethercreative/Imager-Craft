@@ -13,6 +13,7 @@ namespace aelvan\imager\variables;
 use Craft;
 
 use aelvan\imager\Imager as Plugin;
+use aelvan\imager\models\LocalSourceImageModel;
 use aelvan\imager\services\ImagerColorService;
 use aelvan\imager\services\ImagerService;
 use \aelvan\imager\exceptions\ImagerException;
