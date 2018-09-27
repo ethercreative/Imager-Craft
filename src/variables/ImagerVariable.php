@@ -34,19 +34,19 @@ class ImagerVariable
      */
     public function transformImage(&$file, $transform, $transformDefaults = null, $configOverrides = null)
     {
-		$devMode = Craft::$app->config->general->devMode;
-		$external = Craft::$app->config->general->externalUrl;
+	$devMode = Craft::$app->config->general->devMode;
+	$external = Craft::$app->config->general->externalUrl;
 
-		if($devMode && isset($external))
-		{
-			$local = \Craft::getAlias(\Craft::$app->sites->currentSite->baseUrl);
+	if($devMode && isset($external))
+	{
+		$local = \Craft::getAlias(\Craft::$app->sites->currentSite->baseUrl);
 
-			if(substr($external, -1) !== '/')
-				$external .= '/';
+		if(substr($external, -1) !== '/')
+			$external .= '/';
 
-			$sourceModel = new LocalSourceImageModel($file);
-			$file = str_replace($local, $external, $sourceModel->url);
-		}
+		$sourceModel = new LocalSourceImageModel($file);
+		$file = str_replace($local, $external, $sourceModel->url);
+	}
 
         $image = Plugin::$plugin->imager->transformImage($file, $transform, $transformDefaults, $configOverrides);
 
